@@ -1,0 +1,10 @@
+*.elf
+*.hex
+
+/**/*.o
+
+!/lib/*.o
+/CMSIS_5/
+/newlib-cygwin/
+/nrfx/
+/printf/
