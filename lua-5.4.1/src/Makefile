@@ -7,7 +7,7 @@
 PLAT= linux
 
 CC= arm-none-eabi-gcc
-CFLAGS= -O2 -Wall -Wextra -mcpu=cortex-m0 -mthumb -mabi=aapcs \
+CFLAGS= -O2 -Wall -Wextra -nostdinc -mcpu=cortex-m0 -mthumb -mabi=aapcs \
  -mfloat-abi=soft -ffunction-sections -fdata-sections -fno-strict-aliasing -fomit-frame-pointer \
  -fno-builtin --short-enums -DLUA_COMPAT_5_3 $(SYSCFLAGS) $(MYCFLAGS)
 # CFLAGS= -O0 -Wall -Wextra -DLUA_COMPAT_5_3 $(SYSCFLAGS) $(MYCFLAGS)
@@ -23,7 +23,7 @@ SYSCFLAGS=
 SYSLDFLAGS=
 SYSLIBS=
 
-MYCFLAGS=-I../../../common/inc -I../../inc -I../../printf/
+MYCFLAGS=-I../../../common/inc -I../../inc -I../../printf/ -I../../newlib-cygwin/newlib/libc/include -I../../include
 MYLDFLAGS=
 MYLIBS=
 MYOBJS=
