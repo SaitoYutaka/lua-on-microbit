@@ -36,20 +36,6 @@ init.o \
 ./lib/libnosys.a \
 ./lib/libm.a
 
-# OBJS = \
-# ./lib/crt0.o \
-# main.o \
-# ./lib/printf.o \
-# nrfx_uart.o \
-# ./lua-5.4.1/src/liblua.a \
-# locale_ctype_ptr.o \
-# gcc_startup_nrf51.o \
-# system_nrf51.o \
-# ./lib/libc.a \
-# init.o \
-# ./lib/libnosys.a \
-# ./lib/libm.a
-
 all : main.hex
 
 main.hex : main.elf
@@ -59,9 +45,6 @@ main.elf : $(OBJS)
 	arm-none-eabi-gcc $(LDFLAGS) -T ./nrfx/mdk/nrf51_xxab.ld -L ./nrfx/mdk/ -L ./lib -o main.elf $(OBJS)
 
 main.o : main.c
-	arm-none-eabi-gcc -c $(CFLAGS) $(IPATH) -o $@ $<
-
-locale_ctype_ptr.o : locale_ctype_ptr.c
 	arm-none-eabi-gcc -c $(CFLAGS) $(IPATH) -o $@ $<
 
 init.o : init.c
